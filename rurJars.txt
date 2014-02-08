@@ -1,0 +1,5 @@
+hadoop jar "C:\Users\36015To\Documents\GitHub\BigDataBook\out\artifacts\BigDataBook_jar\BigDataBook.jar" com.bigdata.c5.JCascalogCount -libjars C:\hdp\hadoop\hadoop-2.2.0.2.0.6.0-0009\lib\cascading-core-2.5.1.jar,C:\hdp\hadoop\hadoop-2.2.0.2.0.6.0-0009\lib\cascading-hadoop-2.5.1.jar
+
+
+hadoop jar  "C:\Users\36015To\Documents\GitHub\BigDataBook\target\BigDataBook-1.0-SNAPSHOT-jar-with-dependencies.jar" com.bigdata.c5.JCascalogCount
+
