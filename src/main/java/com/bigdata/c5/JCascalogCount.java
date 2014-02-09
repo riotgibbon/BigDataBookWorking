@@ -30,7 +30,7 @@ public class JCascalogCount {
     public static  void main(String [] args) throws Exception{
         Map conf = new HashMap();
 
-        conf.put("cascading.app.appjar.path", "C:\\hdp\\hadoop\\hadoop-2.2.0.2.0.6.0-0009\\lib\\cascading-hadoop-2.5.1.jar");
+        conf.put("cascading.app.appjar.path", "/home/toby/.m2/repository/cascading/cascading-hadoop/2.0.0/cascading-hadoop-2.0.0.jar");
         Api.setApplicationConf(conf);
         Api.execute(new StdoutTap(),
                 new Subquery("?word", "?count")

@@ -30,8 +30,25 @@
               <version>1.3.5</version>
           </dependency>
 
-      </dependencies>
+          <dependency>
+              <groupId>org.apache.hadoop</groupId>
+              <artifactId>hadoop-core</artifactId>
+              <version>${hadoopVersion}</version>
+          </dependency>
 
+
+          <dependency>
+              <groupId>org.slf4j</groupId>
+              <artifactId>slf4j-api</artifactId>
+              <version>${slf4jVersion}</version>
+          </dependency>
+
+      </dependencies>
+    <properties>
+        <slf4jVersion>1.6.1</slf4jVersion>
+        <hadoopVersion>1.2.1</hadoopVersion>
+
+    </properties>
         <build>
             <plugins>
 
