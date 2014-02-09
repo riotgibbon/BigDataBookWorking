@@ -28,10 +28,6 @@ public class JCascalogCount {
             Arrays.asList("the proposition that all men are created equal"));
 
     public static  void main(String [] args) throws Exception{
-        Map conf = new HashMap();
-
-        conf.put("cascading.app.appjar.path", "/home/toby/.m2/repository/cascading/cascading-hadoop/2.0.0/cascading-hadoop-2.0.0.jar");
-        Api.setApplicationConf(conf);
         Api.execute(new StdoutTap(),
                 new Subquery("?word", "?count")
                         .predicate(SENTENCE, "?sentence")
