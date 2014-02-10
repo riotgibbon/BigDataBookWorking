@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * Time: 10:35
  * To change this template use File | Settings | File Templates.
  */
-public class JCascalogCount {
+public class WordCount {
 
     static List  SENTENCE = Arrays.asList(
             Arrays.asList("Four score and seven years ago our fathers"),
