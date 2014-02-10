@@ -12,10 +12,10 @@ import jcascalog.Subquery;
  * Time: 6:20 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CustomAggregator {
+public class CustomAggregatorGrouped {
     public static  void main(String [] args) throws Exception{
         Api.execute(new StdoutTap(),
-        new Subquery("?c")
+        new Subquery("?a" ,"?c")
             .predicate(PersonData.VAL1, "?a", "?b")
             .predicate(new SumAggregator(),"?b").out("?c"));
 
