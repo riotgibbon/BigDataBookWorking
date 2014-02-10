@@ -28,11 +28,14 @@ public class JCascalogCount {
             Arrays.asList("the proposition that all men are created equal"));
 
     public static  void main(String [] args) throws Exception{
+        String count = "?count";
+        String word = "?word";
+        String sentence = "?sentence";
         Api.execute(new StdoutTap(),
-                new Subquery("?word", "?count")
-                        .predicate(SENTENCE, "?sentence")
-                        .predicate(new Split(), "?sentence").out("?word")
-                        .predicate(new Count(), "?count")
+                new Subquery(word, count)
+                        .predicate(SENTENCE, sentence)
+                        .predicate(new Split(), sentence).out(word)
+                        .predicate(new Count(), count)
         );
 
     }
