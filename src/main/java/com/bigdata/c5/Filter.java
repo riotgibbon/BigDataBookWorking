@@ -1,5 +1,6 @@
 package com.bigdata.c5;
 
+import com.bigdata.c5.PersonData;
 import com.twitter.maple.tap.StdoutTap;
 import jcascalog.Api;
 import jcascalog.Subquery;

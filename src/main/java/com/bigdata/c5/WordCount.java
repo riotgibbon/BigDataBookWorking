@@ -12,13 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadPoolExecutor;
 
-/**
- * Created with IntelliJ IDEA.
- * User: 36015To
- * Date: 07/02/14
- * Time: 10:35
- * To change this template use File | Settings | File Templates.
- */
 public class WordCount {
 
     static List  SENTENCE = Arrays.asList(

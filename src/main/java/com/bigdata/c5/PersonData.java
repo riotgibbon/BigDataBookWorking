@@ -31,4 +31,22 @@ public class PersonData        {
             Arrays.asList("alice", "bob"),
             Arrays.asList("bob", "david"),
             Arrays.asList("emily", "gary"));
+    public static List VAL1 = Arrays.asList(
+            Arrays.asList("a", 1),
+            Arrays.asList("b", 2),
+            Arrays.asList("c", 5),
+            Arrays.asList("d", 12),
+            Arrays.asList("d", 1)
+    );
+    public static List VAL2 = Arrays.asList(
+            Arrays.asList("b", 4),
+            Arrays.asList("b", 6),
+            Arrays.asList("c", 3),
+            Arrays.asList("d", 15)
+    );
+    public static List MIXEDVALUES= Arrays.asList(
+            Arrays.asList("aaa", 1),
+            Arrays.asList("2", 4),
+            Arrays.asList("3", 1)
+    );
 }
