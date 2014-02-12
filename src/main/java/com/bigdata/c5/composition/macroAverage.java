@@ -19,14 +19,14 @@ public class macroAverage {
     static String val = "?val";
     static String avg = "?avg";
     static String sum = "?sum";
-    static String count = "?ct";
+    static String count = "?count";
     static String result = "?result";
 
 
     public static  void main(String [] args) throws Exception{
         Api.execute(new StdoutTap(),
                 new Subquery(result)
-                        .predicate(Data.CHAINS, val, "_")
+                        .predicate(Data.CHAINS,"_", val )
                         .predicate(MacroAverage, val).out(result)
         );
     }
@@ -36,6 +36,6 @@ public class macroAverage {
             .predicate(new Count(), count)
             .predicate(new Sum(), val).out(sum)
             .predicate(new Div(), sum, count).out(avg);
-    ;
+
 
 }
