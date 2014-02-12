@@ -61,4 +61,18 @@ public class Data {
             Arrays.asList("brought forth on this continent a new nation"),
             Arrays.asList("conceived in Liberty and dedicated to"),
             Arrays.asList("the proposition that all men are created equal"));
+    public static List CHAINS = Arrays.asList(
+            Arrays.asList(1, 2),
+            Arrays.asList(2, 3),
+            Arrays.asList(3, 4),
+            Arrays.asList(6, 7),
+            Arrays.asList(7, 8),
+            Arrays.asList(8, 9),
+            Arrays.asList(7, 10),
+            Arrays.asList(10, 11)
+    );
+
+    public static List NUMBERS = Arrays.asList(
+            1,2,3,4,5,6,7
+    );
 }
