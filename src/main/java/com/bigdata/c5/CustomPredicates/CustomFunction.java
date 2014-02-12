@@ -1,12 +1,9 @@
 package com.bigdata.c5.CustomPredicates;
 
-import com.bigdata.c5.PersonData;
+import com.bigdata.c5.Data;
 import com.twitter.maple.tap.StdoutTap;
 import jcascalog.Api;
 import jcascalog.Subquery;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,10 +18,10 @@ public class CustomFunction {
     public static  void main(String [] args) throws Exception{
         Api.execute(new StdoutTap(),
                 new Subquery("?a", "?b", "?c", "?d", "?e")
-                        .predicate(PersonData.VAL1, "?a", "?b")
-                        .predicate(new IncrementFunction(),"?b").out("?c")
-                        .predicate(new SquareFunction(),"?b").out("?d")
-                        .predicate(new SquareFunction(),"?c").out("?e"));
+                        .predicate(Data.VAL1, "?a", "?b")
+                        .predicate(new IncrementFunction(), "?b").out("?c")
+                        .predicate(new SquareFunction(), "?b").out("?d")
+                        .predicate(new SquareFunction(), "?c").out("?e"));
         System.out.println("increment with IncrementFunction");
     }
 }

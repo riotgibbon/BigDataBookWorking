@@ -1,6 +1,6 @@
 package com.bigdata.c5.CustomPredicates;
 
-import com.bigdata.c5.PersonData;
+import com.bigdata.c5.Data;
 import com.twitter.maple.tap.StdoutTap;
 import jcascalog.Api;
 import jcascalog.Subquery;
@@ -16,7 +16,7 @@ public class CustomAggregator {
     public static  void main(String [] args) throws Exception{
         Api.execute(new StdoutTap(),
         new Subquery("?c")
-            .predicate(PersonData.VAL1, "?a", "?b")
+            .predicate(Data.VAL1, "?a", "?b")
             .predicate(new SumAggregator(),"?b").out("?c"));
 
     }

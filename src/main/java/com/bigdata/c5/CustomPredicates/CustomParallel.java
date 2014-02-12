@@ -3,7 +3,7 @@ package com.bigdata.c5.CustomPredicates;
 import cascading.flow.FlowProcess;
 import cascading.operation.OperationCall;
 import cascalog.ParallelAgg;
-import com.bigdata.c5.PersonData;
+import com.bigdata.c5.Data;
 import com.twitter.maple.tap.StdoutTap;
 import jcascalog.Api;
 import jcascalog.Subquery;
@@ -22,7 +22,7 @@ public class CustomParallel {
     public static  void main(String [] args) throws Exception{
         Api.execute(new StdoutTap(),
                 new Subquery("?a", "?c")
-                        .predicate(PersonData.VAL2, "?a", "?b")
+                        .predicate(Data.VAL2, "?a", "?b")
                         .predicate(new SumParallel(), "?b").out("?c"));
 
     }

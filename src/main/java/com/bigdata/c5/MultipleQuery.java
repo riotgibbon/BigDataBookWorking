@@ -18,8 +18,8 @@ public class MultipleQuery {
 
         Api.execute(new StdoutTap(),
                 new Subquery("?a", "?avg")
-                .predicate(PersonData.VAL1, "?a", "?b")
-                .predicate(PersonData.VAL2, "?a", "?c")
+                .predicate(Data.VAL1, "?a", "?b")
+                .predicate(Data.VAL2, "?a", "?c")
 
                 .predicate(new Multiply(),2, "?b").out("?double-b")
                 .predicate(new LT(), "?b", "?c")

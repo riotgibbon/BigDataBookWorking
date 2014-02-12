@@ -13,8 +13,8 @@ public class GroupByGenderAgeFilter {
     public static void main(String[] args) throws IOException {
         Api.execute(new StdoutTap(),
                 new Subquery("?gender", "?count")
-                    .predicate(PersonData.GENDER, "?person",  "?gender")
-                    .predicate(PersonData.AGE, "?person", "?age")
+                    .predicate(Data.GENDER, "?person",  "?gender")
+                    .predicate(Data.AGE, "?person", "?age")
                     .predicate(new LT(),  "?age", 35)
                     .predicate(new Count(),"?count"));
         System.out.println("grouping on filtered age");

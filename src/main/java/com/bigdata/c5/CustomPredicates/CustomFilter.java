@@ -1,6 +1,6 @@
 package com.bigdata.c5.CustomPredicates;
 
-import com.bigdata.c5.PersonData;
+import com.bigdata.c5.Data;
 import com.twitter.maple.tap.StdoutTap;
 import jcascalog.Api;
 import jcascalog.Subquery;
@@ -16,7 +16,7 @@ public class CustomFilter {
     public static  void main(String [] args) throws Exception{
         Api.execute(new StdoutTap(),
                 new Subquery("?person", "?age")
-                        .predicate(PersonData.AGE, "?person", "?age")
+                        .predicate(Data.AGE, "?person", "?age")
                         .predicate(new GreaterThanThirtyFilter(), "?age"));
         System.out.println("filtering on GreaterThanThirtyFilter");
     }

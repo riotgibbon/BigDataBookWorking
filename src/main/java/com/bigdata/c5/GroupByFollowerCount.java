@@ -12,7 +12,7 @@ public class GroupByFollowerCount {
     public static void main(String[] args) throws IOException {
         Api.execute(new StdoutTap(),
                 new Subquery("?person", "?count")
-                    .predicate(PersonData.FOLLOWS, "?person",  "_")
+                    .predicate(Data.FOLLOWS, "?person",  "_")
                     .predicate(new Count(),"?count"));
         System.out.println("grouping on follow count");
     }

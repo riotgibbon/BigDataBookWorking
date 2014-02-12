@@ -1,6 +1,6 @@
 package com.bigdata.c5.CustomPredicates;
 
-import com.bigdata.c5.PersonData;
+import com.bigdata.c5.Data;
 import com.twitter.maple.tap.StdoutTap;
 import jcascalog.Api;
 import jcascalog.Subquery;
@@ -18,7 +18,7 @@ public class CustomFunctionWithFilter {
     public static  void main(String [] args) throws Exception{
         Api.execute(new StdoutTap(),
                 new Subquery("?a", "?b", "?c", "?d")
-                        .predicate(PersonData.MIXEDVALUES, "?a", "?b")
+                        .predicate(Data.MIXEDVALUES, "?a", "?b")
                         .predicate(new TryParseInteger(), "?a").out("?c")
                         .predicate(new SquareFunction(), "?c").out("?d")
         ) ;

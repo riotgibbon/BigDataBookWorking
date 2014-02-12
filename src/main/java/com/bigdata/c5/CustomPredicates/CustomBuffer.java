@@ -5,7 +5,7 @@ import cascading.operation.BufferCall;
 import cascading.tuple.Tuple;
 import cascading.tuple.TupleEntry;
 import cascalog.CascalogBuffer;
-import com.bigdata.c5.PersonData;
+import com.bigdata.c5.Data;
 import com.twitter.maple.tap.StdoutTap;
 import jcascalog.Api;
 import jcascalog.Subquery;
@@ -24,7 +24,7 @@ public class CustomBuffer {
     public static  void main(String [] args) throws Exception{
         Api.execute(new StdoutTap(),
                 new Subquery("?a", "?c")
-                        .predicate(PersonData.VAL2, "?a", "?b")
+                        .predicate(Data.VAL2, "?a", "?b")
                         .predicate(new SumBuffer(), "?b").out("?c"));
 
     }

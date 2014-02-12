@@ -11,7 +11,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 
-public class PersonData        {
+public class Data {
 
     public static List AGE = Arrays.asList(
             Arrays.asList("alice", 28),
@@ -29,7 +29,14 @@ public class PersonData        {
     public static List FOLLOWS = Arrays.asList(
             Arrays.asList("alice","david"),
             Arrays.asList("alice", "bob"),
+            Arrays.asList("alice", "emily"),
             Arrays.asList("bob", "david"),
+            Arrays.asList("chris", "david"),
+            Arrays.asList("david", "bob"),
+            Arrays.asList("david", "chris"),
+            Arrays.asList("david", "emily"),
+            Arrays.asList("emily", "bob"),
+            Arrays.asList("emily", "chris"),
             Arrays.asList("emily", "gary"));
     public static List VAL1 = Arrays.asList(
             Arrays.asList("a", 1),
@@ -49,4 +56,9 @@ public class PersonData        {
             Arrays.asList("2", 4),
             Arrays.asList("3", 1)
     );
+    public static List  SENTENCE = Arrays.asList(
+            Arrays.asList("Four score and seven years ago our fathers"),
+            Arrays.asList("brought forth on this continent a new nation"),
+            Arrays.asList("conceived in Liberty and dedicated to"),
+            Arrays.asList("the proposition that all men are created equal"));
 }
