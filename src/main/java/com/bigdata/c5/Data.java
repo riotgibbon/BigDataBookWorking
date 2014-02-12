@@ -37,7 +37,11 @@ public class Data {
             Arrays.asList("david", "emily"),
             Arrays.asList("emily", "bob"),
             Arrays.asList("emily", "chris"),
-            Arrays.asList("emily", "gary"));
+            Arrays.asList("emily", "gary"),
+            Arrays.asList("emily", "fred")
+
+    )
+            ;
     public static List VAL1 = Arrays.asList(
             Arrays.asList("a", 1),
             Arrays.asList("b", 2),
