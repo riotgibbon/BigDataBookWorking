@@ -20,10 +20,11 @@ public class ParseTransactionRecord extends CascalogFunction {
     public void operate(FlowProcess process, FunctionCall call) {
         String line = call.getArguments().getString(0);
         Map parsed = (Map) JSONValue.parse(line);
-        call.getOutputCollector().add(new Tuple(
+        Tuple tuple = new Tuple(
                 parsed.get("buyer"),
                 parsed.get("seller"),
                 parsed.get("amt"),
-                parsed.get("timestamp")));
+                parsed.get("timestamp"));
+        call.getOutputCollector().add(tuple);
     }
 }

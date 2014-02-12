@@ -4,6 +4,7 @@ import com.twitter.maple.tap.StdoutTap;
 import jcascalog.Api;
 import jcascalog.Subquery;
 import jcascalog.op.Count;
+import jcascalog.op.Sum;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,17 +15,17 @@ import jcascalog.op.Count;
  */
 public class DynamicSubqueries {
 
-    public static  void main(String [] args) throws Exception{
-         Api.execute(new StdoutTap(),
-                 new Subquery("?buyer", "?count")
-                 .predicate( buyerNumTransactions("/tmp/json/input.txt"),"?buyer", "?count")
-         );
+
+    public static Subquery sourceNumTransactions(String path, String source) {
+        return new Subquery(source, "?count")
+                .predicate(parseTransactionData(path), "?buyer", "?seller", "?amt", "?timestamp")
+                .predicate(new Count(), "?count")  ;
     }
 
-    public static Subquery buyerNumTransactions(String path) {
-        return new Subquery("?buyer", "?count")
-                .predicate(parseTransactionData(path), "?buyer", "_", "_", "_")
-                .predicate(new Count(), "?count")  ;
+    public static Subquery sourceTotalTransactions(String path, String source) {
+        return new Subquery(source, "?sum")
+                .predicate(parseTransactionData(path), "?buyer", "?seller", "?amt", "?timestamp")
+                .predicate(new Sum(), "?amt").out("?sum")  ;
     }
 
     public static Subquery parseTransactionData(String path) {
