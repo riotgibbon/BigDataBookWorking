@@ -36,10 +36,10 @@ public class dynamicMacros {
 
         Subquery partial = new Subquery(x, y, z)
                 .predicate(Data.TRIPLETS, a, b, c)
-                .predicate(new Each(new Partial(new Plus(),1)), a, b, c)
+                .predicate(new Each(new Partial(new Plus(),a)), a, b, c)
                 .out(x, y, z);
 
-        Api.execute(new StdoutTap(),partial );
+        Api.execute(new StdoutTap(),partial);
 
 
 
@@ -83,7 +83,7 @@ public class dynamicMacros {
             input.addAll(args);
             input.addAll(inFields);
             ret.add(new Predicate(op,input, outFields));
-            return null;
+            return ret;
         }
     }
 }
