@@ -22,9 +22,9 @@ public class distinctFollowers {
     public static  void main(String [] args) throws Exception{
 
         Api.execute(new StdoutTap(),
-                new Subquery(result)
+                new Subquery(followed, result)
                         .predicate(Data.FOLLOWS, person, followed)
-                        .predicate(new MyDiscountCount(), followed)
+                        .predicate(new MyDiscountCount(), person)
                         .out(result)
         );
     }

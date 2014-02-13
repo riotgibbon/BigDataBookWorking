@@ -16,7 +16,16 @@ import java.util.List;
  */
 public class random {
     public static  void main(String [] args) throws Exception{
-        Api.execute(new StdoutTap(),  fixedRandomSample(chains.chainsLengthN(Data.CHAINS, 2), 2) ) ;
+        String out = "?out";
+        String in1 = "?in1";
+        String in2 = "?in2";
+
+        Subquery subquery = new Subquery(in1, in2)
+                .predicate(Data.FOLLOWS, in1, in2)
+                ///.out(in1, in2)
+                ;
+        Subquery randomSample = fixedRandomSample( subquery, 2);
+        Api.execute(new StdoutTap(), randomSample) ;
     }
     
     public static Subquery fixedRandomSample(Object data, int n){
