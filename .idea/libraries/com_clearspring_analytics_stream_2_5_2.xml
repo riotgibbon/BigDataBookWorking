@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="com.clearspring.analytics:stream:2.5.2" type="repository">
+    <properties maven-id="com.clearspring.analytics:stream:2.5.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/stream-2.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fastutil-6.5.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
