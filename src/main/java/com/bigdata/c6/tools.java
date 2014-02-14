@@ -15,6 +15,7 @@ import com.bigdata.thrift.Data;
 import com.bigdata.thrift.DataUnit;
 import com.bigdata.thrift.PageID;
 import jcascalog.Api;
+import jcascalog.Option;
 import jcascalog.Subquery;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -38,8 +39,11 @@ public class tools {
     private static final String snapshot = rootPath + "/snapshot";
     private static final String shredded= rootPath + "/shredded";
     private static final String normalizedUrls= rootPath + "/normalized_urls";
+    private static final String normalizedPageViews= rootPath + "/normalized_pageview_users";
+    private static final String uniquePageViews= rootPath + "/unique_pageviews";
     private static final String dataMaster = "/data/master";
     private static final String empty = "_";
+    private static final String data = "?data";
 
     public static void setApplicationConf(){
         Map conf = new HashMap();
@@ -85,15 +89,14 @@ public class tools {
         PailTap source = new PailTap(snapshot);
         PailTap sink = new PailTap(shredded);
         String rand = "?rand";
-        String data = "?data";
         String dataIn = "?data-in";
-        Subquery reduced = new Subquery(rand, data  )
+        Subquery reduced = new Subquery(rand, data)
                 .predicate(source, empty, dataIn)
                 .predicate(new RandLong())
                 .out(rand)
                 .predicate(new IdentityBuffer(), dataIn)
                 .out(data);
-        Api.execute(sink, new Subquery(data).predicate(reduced, empty,data));
+        Api.execute(sink, new Subquery(data).predicate(reduced, empty, data));
         Pail shreddedPail = new Pail(shredded);
         shreddedPail.consolidate();
         return  shreddedPail;
@@ -141,5 +144,17 @@ public class tools {
                     .out(normalized)
                     );
         }
+
+        public static void deduplicatePageviews(){
+            Tap source = attributeTap(normalizedPageViews, DataUnit._Fields.PAGE_VIEW);
+            Tap outTap = splitDataTap(uniquePageViews);
+
+            Api.execute(outTap,
+                    new Subquery(data)
+                    .predicate(source,data)
+                    .predicate(Option.DISTINCT, true)
+            );
+        }
     }
+
 }
